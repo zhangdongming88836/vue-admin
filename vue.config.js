@@ -36,7 +36,7 @@ module.exports = {
     // css预设器配置项
     loaderOptions: {
       // 如发现 css.modules 报错，请查看这里：http://www.web-jshtml.cn/#/detailed?id=12
-      sass: { 
+      scss: { 
         prependData: `@import "./src/styles/main.scss";`
         }
     },
@@ -58,7 +58,16 @@ module.exports = {
     https: false, // 编译失败时刷新页面
     hot: true, // 开启热加载
     hotOnly: false,
-    proxy: null, // 设置代理
+   // 设置代理
+    proxy:{
+      "/devApi":{
+        target:"http://www.web-jshtml.cn/vue_admin_api/token",//API服务器地址
+        changeOrigin:true,
+        pathRewrite:{
+           "^/devApi":""
+        }
+      }
+    },
     overlay: { // 全屏模式下是否显示脚本错误
       warnings: true,
       errors: true

@@ -13,7 +13,7 @@
  *验证邮箱
  */
 export function calidateEmail(email){
-   let reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+   let reg = /^([a-zA-Z]|[0-9])(\w)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
    return !reg.test(email) ? false : true
 }
 /*
@@ -27,6 +27,6 @@ export function calidatePassword(password){
 *验证码
 */
 export function calidatecode(code){
-   let reg = /^[a-z0-9]{6}$/;
+   let reg = /^[a-zA-Z0-9]{6}$/;
    return !reg.test(code) ? false :true
 }
