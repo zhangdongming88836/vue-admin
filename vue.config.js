@@ -10,11 +10,21 @@ module.exports = {
    * webpack配置,see https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md
    **/
   chainWebpack: (config) => {
+    const svgRule = config.module.rule("svg");
+    svgRule.uses.clear();
+    svgRule
+    .use("svg-sprite-loader")
+    .loader("svg-sprite-loader")
+    .options({
+      symbolId:"icon-[name]",
+      include:["./src/icons"]
+    });
   },
   configureWebpack: (config) => {
      config.resolve = { // 配置解析别名
       extensions: ['.js', '.json', '.vue'],//自动添加文件名后缀
       alias: {
+         "vue":"vue/dist/vue.js",//设置全局组件的时候加这条路径更改Vue的指向
          '@': path.resolve(__dirname, './src'),
          'public': path.resolve(__dirname, './public'),
          '@c': path.resolve(__dirname, './src/components'),

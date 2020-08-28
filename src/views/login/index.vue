@@ -228,11 +228,22 @@ export default {
           password:sha1(ruleForm.password),
           code:ruleForm.code,
         }
-         Login(data).then(response=>{
-          console.log(response)
-         }).catch(error=>{
+         context.root.$store.dispatch("app/login",data).then(response =>{
+              context.root.$router.push({
+                 name:"console",
+              });
+         }).catch(error =>{
 
          })
+        //  Login(data).then(response=>{
+        //    //登录成功
+        //   console.log(response)
+        //   context.root.$router.push({
+        //     name:"console",
+        //   });
+        //  }).catch(error=>{
+
+        //  })
        })
        /*
        *注册
@@ -267,7 +278,7 @@ export default {
            let time = number;
             timer.value = setInterval(()=>{
               time--
-              console.log(time)
+              
               if(time === 0){
                 clearInterval(timer.value);
                  codeButtonStatus.status= true;
