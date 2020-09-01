@@ -1,6 +1,6 @@
 import axios from "axios"
 import {Message} from "element-ui"
-
+import {getToken,getUserName} from "@/utils/app"
 //常见axios,赋值给变量service
 const BASEURL =  process.env.NODE_ENV === 'production' ? '' : '/devApi';
 const service = axios.create({
@@ -15,7 +15,8 @@ service.interceptors.request.use(function (config){
    //userId
    //sui
    console.log(config.headers);
-   config.headers.Token = "11111111"
+   config.headers.Token = getToken();
+   config.headers.UserName = getUserName();
     return config;
 },function (error){
     //对请求错误做什么

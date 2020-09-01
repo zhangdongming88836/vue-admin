@@ -25,3 +25,11 @@
   .el-menu-item{line-height:56px;}
   .el-menu-item:hover{background-color:rgba(0,0,0,0.5) !important;}
 }
+/*table样式*/
+.el-table td, .el-table th{
+  text-align:center;
+}
+
+.v-modal{
+    width:0 !important;
+  }

@@ -1,7 +1,7 @@
 <template>
     <div id="main-wrap">
         <div class="main-content">
-            <div class="content"><router-view/>{{BAS}}</div>
+            <div class="content"><router-view/></div>
         </div>
     </div>
 </template>
@@ -10,9 +10,9 @@ import{ref,reactive}from "@vue/composition-api"
 export default {
    name:"layoutMain",
    setup(props,context){
-     const BAS = ref(context.root.$store.state.login.aaa);
+     
      return {
-        BAS
+       
      }
       
    }
