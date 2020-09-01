@@ -63,6 +63,7 @@
         <template slot-scope="scope">
           <el-button type="danger" size="mini" @click="deleteItem(scope.row.id)">删除</el-button>
           <el-button type="success" size="mini" @click="editInfo(scope.row.id)">编辑</el-button>
+          <el-button type="success" size="mini" @click="editInfo(scope.row.id)">编辑详情</el-button>
         </template>
       </el-table-column>
     </el-table>
