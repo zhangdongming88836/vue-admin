@@ -72,7 +72,7 @@ export default {
     const openDialog = () => {
       categoryOption.item = props.category;
       getInfo()
-      console.log(props.id)
+      
     };
     //vue2.0 methods
     const getInfo = () => {

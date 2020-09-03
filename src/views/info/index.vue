@@ -63,7 +63,7 @@
         <template slot-scope="scope">
           <el-button type="danger" size="mini" @click="deleteItem(scope.row.id)">删除</el-button>
           <el-button type="success" size="mini" @click="editInfo(scope.row.id)">编辑</el-button>
-          <el-button type="success" size="mini" @click="editInfo(scope.row.id)">编辑详情</el-button>
+          <el-button type="success" size="mini" @click="detailed(scope.row)">编辑详情</el-button> 
         </template>
       </el-table-column>
     </el-table>
@@ -146,6 +146,31 @@ export default {
     const editInfo = (id) => {
       infoId.value = id
      dialog_info_edit.value = true
+    }
+    /*
+    * 详情页
+    */
+    const detailed = (data) => {
+         context.root.$store.commit("infoDetailed/UPDATE_STATE_VALUE",{
+           id:{
+             value:data.id,
+             sessionKey:"infoId",
+             session:true
+           },
+           title:{
+              value:data.title,
+              sessionKey:"infoTitle",
+              session:true
+           }
+         })
+         //跳转页面
+         context.root.$router.push({
+           name:"INfoDetailed",
+           params:{
+             id:data.id,
+             title:data.title
+           }
+         })
     }
     //删除单个
     const deleteItem = (id) => {
@@ -267,7 +292,8 @@ export default {
       getList,
       dialog_info_edit,
       editInfo,
-      infoId
+      infoId,
+      detailed
     };
   }
 };

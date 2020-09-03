@@ -46,7 +46,7 @@ module.exports = {
     // css预设器配置项
     loaderOptions: {
       // 如发现 css.modules 报错，请查看这里：http://www.web-jshtml.cn/#/detailed?id=12
-      scss: { 
+      scss:{ 
         prependData: `@import "./src/styles/main.scss";`
         }
     },
@@ -62,7 +62,7 @@ module.exports = {
   pwa: {},
   // webpack-dev-server 相关配置
   devServer: {
-    open: false, // 编译完成是否打开网页
+    open: true, // 编译完成是否打开网页
     host: '0.0.0.0', // 指定使用地址，默认localhost,0.0.0.0代表可以被外界访问
     port: 8080, // 访问端口
     https: false, // 编译失败时刷新页面

@@ -14,7 +14,7 @@ service.interceptors.request.use(function (config){
    //token
    //userId
    //sui
-   console.log(config.headers);
+   
    config.headers.Token = getToken();
    config.headers.UserName = getUserName();
     return config;
@@ -26,7 +26,7 @@ service.interceptors.request.use(function (config){
 service.interceptors.response.use(function (response){
     //对响应数据做点什么
     let data = response.data;
-    console.log(data);
+    
     if(data.resCode!==0){
         Message.error(data.message);
         return Promise.reject(data);

@@ -36,7 +36,7 @@ const  actions = {//可以回调处理事情
      //接口
      Login(data).then(response => {
        let data = response.data.data
-       console.log(data)
+       
        //token  username
        //普通
        //content.commit("SET_TOKEN",data.token)
