@@ -6,24 +6,30 @@ const  whiteRouter = ["/login"];//白名单//indexOf方法，判断数组是不�
 
 //路由守卫
 router.beforeEach((to,from ,next) => {
-    console.log(to) //index
+     //index
     if(getToken()){
         next();
+        //如果to的指向是登录页面也就是说返回了登录页面
         if(to.path == "/login"){
+            //清空cookie中的token
             removeToken();
+            //清空cookie中的username
             removeUserName();
+            //清空vuex中的state中的token
             store.commit("app/SET_TOKEN","");
+             //清空vuex中的state中的username
             store.commit("app/SET_USERNAME","");
             next();
         }else{
             //获取用户的角色
             //动态分配路由权限
-            next();
+            //继续执行跳转
+              next();
         }
         //路由的动态添加，分配菜单，每个角色分配不同的菜单
     }else{
         //next("")
-        console.log("不存在")
+        //如果白名单里的是不是存在to存在1不存在等于-1
         if(whiteRouter.indexOf(to.path) !== -1){
             next(); //to  
         }else{

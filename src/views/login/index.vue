@@ -177,9 +177,9 @@ export default {
                 loginButtonStatus.value = false;
                 //倒计时
                 countDown(60);
-                console.log(data)
+               
            }).catch(err => {
-             console.log(err);
+             
            })
          });
          //切换模块
@@ -204,7 +204,7 @@ export default {
          *提交表单
          */
         const submitForm = (formName =>{
-          console.log(model.value);
+          
            context.refs[formName].validate((valid) => {
             //表单验证通过
             if (valid) {
@@ -214,7 +214,7 @@ export default {
                 register()
               }
           } else {
-            console.log('error submit!!');
+            
             return false;
           }
         });
